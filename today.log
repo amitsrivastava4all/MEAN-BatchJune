@@ -1,0 +1,32 @@
+function add(){  // var b;
+console.log("B is "+b);
+for(let i = 0 ; i<arguments.length; i++){
+let b = 100;
+}
+console.log("B is ********* "+b);
+}
+undefined
+add(10);
+VM5272:2 Uncaught ReferenceError: b is not defined
+    at add (<anonymous>:2:21)
+    at <anonymous>:1:1
+add @ VM5272:2
+(anonymous) @ VM5285:1
+function jQuery(){
+console.log("Jquery ");
+}
+undefined
+var $ =jQuery;
+undefined
+typeof $;
+"function"
+$;
+ƒ jQuery(){
+console.log("Jquery ");
+}
+$("p");
+VM6900:2 Jquery 
+undefined
+$(this);
+VM6900:2 Jquery 
+undefined

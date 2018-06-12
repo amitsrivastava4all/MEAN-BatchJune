@@ -1,0 +1,276 @@
+var a = parseInt("One");
+undefined
+a;
+NaN
+isNaN(a)?"Something went Wrong please try again":a;
+"Something went Wrong please try again"
+a=100;
+100
+isNaN(a)?"Something went Wrong please try again":a;
+100
+var b  = 1000/0;
+undefined
+b;
+Infinity
+isFinite(b);
+false
+var a= 0;
+undefined
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM1315:5 Not Having Value 
+undefined
+a;
+0
+a=10;
+10
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM1348:2 It has Value
+undefined
+a="";
+""
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM1395:5 Not Having Value 
+undefined
+a;
+""
+var tt = 99;
+undefined
+console.log("Hello ");
+VM1701:1 Hello 
+undefined
+function show(){
+return 1000;
+}
+undefined
+show();
+1000
+function showA(){
+console.log("Show A");
+}
+undefined
+showA();
+VM1769:2 Show A
+undefined
+a = null;
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM2002:6 Not Having Value 
+undefined
+a=undefined;
+undefined
+a = null;
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM2032:6 Not Having Value 
+undefined
+a = undefined;
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM2042:6 Not Having Value 
+undefined
+a=NaN;
+NaN
+a = undefined;
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM2060:6 Not Having Value 
+undefined
+a = NaN;
+if(a){
+console.log("It has Value");
+}
+else{
+console.log("Not Having Value ");
+}
+VM2069:6 Not Having Value 
+undefined
+a=0;
+0
+a?"Truthy":"Falsy";
+"Falsy"
+console.log(a?"Truthy":"Falsy");
+VM2245:1 Falsy
+undefined
+Number("100");
+100
+Number("100.20");
+100.2
+var d= new Number("100.2");
+undefined
+typeof d;
+"object"
+d instanceof Number;
+true
+typeof Number;
+"function"
+class A{
+}
+undefined
+typeof A;
+"function"
+function add(){
+console.log("Add ");
+}
+undefined
+add();
+VM3943:2 Add 
+undefined
+add(10,20,30);
+VM3943:2 Add 
+undefined
+add("Hello",10,true,[90,20]);
+VM3943:2 Add 
+undefined
+function add(){
+
+}
+undefined
+console.dir(add);
+VM4459:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM4376:1[[Scopes]]: Scopes[2]
+undefined
+add.length;
+0
+add.name;
+"add"
+function add(){
+console.log("Total Arguments are "+arguments.length);
+}
+undefined
+add();
+VM4679:2 Total Arguments are 0
+undefined
+add(10,20,30);
+VM4679:2 Total Arguments are 3
+undefined
+add(10,20,30,"Hello",true);
+VM4679:2 Total Arguments are 5
+undefined
+add(10,20,30,"Hello",true,[1,2,3]);
+VM4679:2 Total Arguments are 6
+undefined
+function add(){  // var b;
+console.log("B is "+b);
+for(let i = 0 ; i<arguments.length; i++){
+var b = 100;
+}
+console.log("B is ********* "+b);
+}
+undefined
+add(10);
+VM4974:2 B is undefined
+VM4974:6 B is ********* 100
+undefined
+function add(){  // var b;
+console.log("B is "+b);
+for(let i = 0 ; i<arguments.length; i++){
+let b = 100;
+}
+console.log("B is ********* "+b);
+}
+undefined
+add();
+VM5161:2 B is Infinity
+VM5161:6 B is ********* Infinity
+undefined
+function add(){  // var b;
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+sum +=arguments[i];
+}
+return sum;
+}
+undefined
+add();
+0
+add(10,20,30);
+60
+add(10,20,30,90,88,66,55);
+359
+add(10,20,30,90,"88",66,55);
+"150886655"
+function add(){  // var b;
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+sum +=parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20",30,"40");
+100
+add(10,"One",30,"40");
+NaN
+function add(){  // var b;
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"One",30,"40");
+80
+function firstNumber(){
+return 1000;
+}
+undefined
+function secondNumber(){
+return 2000;
+}
+undefined
+add(firstNumber, secondNumber, 10,"100","Hello");
+110
+parseInt(firstNumber);
+NaN
+parseInt(firstNumber());
+1000
+function add(){  // var b;
+var sum = 0;
+for(let i = 0 ; i<arguments.length; i++){
+if(typeof arguments[i]=="function"){
+arguments[i] = arguments[i]();
+}
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(firstNumber, secondNumber, 10,"100","Hello");
+3110
+var ww = [10,20];
+undefined
+typeof ww;
+"object"
+ww instanceof Array;
+true
