@@ -1,0 +1,76 @@
+var x = [10,20,30,40,50];
+undefined
+for(let i of x){
+console.log(i);
+}
+VM183:2 10
+VM183:2 20
+VM183:2 30
+VM183:2 40
+VM183:2 50
+undefined
+x;
+(5) [10, 20, 30, 40, 50]
+var [y,,z,a] = x;
+undefined
+y;
+10
+z;
+30
+a;
+40
+var [a,b] = [10,20];
+undefined
+a;
+10
+b;
+20
+[a,b] = [b,a];
+(2) [20, 10]
+a;
+20
+b;
+10
+var obj = {id:10, name:'Ram', print(){console.log("Print");}}
+undefined
+obj.id;  // Static Call
+10
+obj.name;
+"Ram"
+var key = "id";
+undefined
+typeof key;
+"string"
+obj[key]; // Dynamic Call
+10
+key="name";
+"name"
+obj[key]; // Dynamic Call
+"Ram"
+var calc = {
+add(){
+console.log("add ");
+},
+sub(){
+console.log("sub ");
+},
+mul(){
+console.log("Mul ");
+}
+}
+undefined
+flag = 'add';
+calc[flag]();
+
+VM1217:3 add 
+undefined
+flag = 'sub';
+calc[flag]();
+
+VM1217:6 sub 
+undefined
+flag = 'mul';
+calc[flag]();
+
+VM1217:9 Mul 
+undefined

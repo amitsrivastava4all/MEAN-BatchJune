@@ -1,0 +1,117 @@
+const salaryOperations = {
+    salary : 0,
+    takeSalary(salary){
+         this.salary = salary;   
+    },
+    hra(){
+        return this.salary * 0.30;
+    },
+    da(){
+        return this.salary * 0.20;
+    },
+    ta(){
+        return this.salary * 0.10;
+    },
+    pf(){
+        return this.salary * 0.05;
+    },
+    gs(){
+        return this.salary + this.hra() + this.da() + this.ta() - this.pf();
+    },
+    tax(){
+        return this.gs() * 0.10;
+    },
+    ns(){
+        return this.gs() - this.tax();
+    }
+
+};
+
+undefined
+salaryOperations;
+{salary: 0, takeSalary: ƒ, hra: ƒ, da: ƒ, ta: ƒ, …}
+var key = "hra";
+undefined
+salaryOperations[key]();
+0
+var key = "da";
+undefined
+salaryOperations[key]();
+0
+for(let key in salaryOperations){
+console.log(key);
+}
+VM2135:2 salary
+VM2135:2 takeSalary
+VM2135:2 hra
+VM2135:2 da
+VM2135:2 ta
+VM2135:2 pf
+VM2135:2 gs
+VM2135:2 tax
+VM2135:2 ns
+undefined
+for(let key in salaryOperations){
+if(key=='salary' || key=='takeSalary'){
+continue;
+}
+console.log(key);
+}
+VM2278:5 hra
+VM2278:5 da
+VM2278:5 ta
+VM2278:5 pf
+VM2278:5 gs
+VM2278:5 tax
+VM2278:5 ns
+undefined
+for(let key in salaryOperations){
+if(key=='salary' || key=='takeSalary'){
+continue;
+}
+salaryOperations[key]();
+}
+0
+for(let key in salaryOperations){
+if(key=='salary' || key=='takeSalary'){
+continue;
+}
+console.log(salaryOperations[key]());
+}
+VM2382:5 0
+VM2382:5 0
+VM2382:5 0
+VM2382:5 0
+VM2382:5 0
+VM2382:5 0
+VM2382:5 0
+undefined
+salaryOperations.salary = 9000;
+9000
+for(let key in salaryOperations){
+if(key=='salary' || key=='takeSalary'){
+continue;
+}
+console.log(salaryOperations[key]());
+}
+VM2420:5 2700
+VM2420:5 1800
+VM2420:5 900
+VM2420:5 450
+VM2420:5 13950
+VM2420:5 1395
+VM2420:5 12555
+undefined
+a=100;
+100
+b="100";
+"100"
+a==b;
+true
+a===b;
+false
+var a = 100;
+undefined
+console.log("HHH");
+VM6608:1 HHH
+undefined
