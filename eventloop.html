@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var counter = 1;
+
+        function callMeBack(value) {
+            console.log(" I will call after the Big Task ", value)
+                // display();
+        }
+
+        function process() {
+            console.log("Process Start....");
+            bigTask(callMeBack);
+            for (i = 1; i <= 10; i++) {
+                console.log(" I is " + i);
+            }
+        }
+
+        function bigTask(fn) {
+            x = show();
+            setTimeout(() => {
+                console.log("Big Task Start....");
+                for (let i = 1; i <= 1000000; i++) {
+                    for (let j = 1; j <= 1000000; j++) {
+
+                    }
+                }
+                console.log("Big Task End....");
+                fn(1000);
+                // return 1000;
+            }, 10000);
+
+        }
+
+        function count() {
+            document.querySelector("#count").innerHTML = counter;
+            counter++;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="process()">Big Task</button>
+    <button onclick="count()">Increase</button>
+    <h1>Count Value is <span id="count"></span></h1>
+</body>
+
+</html>
