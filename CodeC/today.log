@@ -1,0 +1,62 @@
+function asyncDemo(callBack){
+setTimeout(()=>{
+var x = 10;
+var y = 20;
+console.log("Inside Asynch Function "+x+" "+y);
+callBack(x+y);
+})
+}
+function done(result){
+console.log("Now Sum is ",result);
+}
+asyncDemo(done);
+undefined
+VM3917:5 Inside Asynch Function 10 20
+VM3917:10 Now Sum is  30
+function asyncDemo(callBack){
+setTimeout(()=>{
+var x = 10;
+var y = 20;
+console.log("Inside Asynch Function "+x+" "+y);
+callBack(x+y);
+},6000)
+}
+function done(result){
+console.log("Now Sum is ",result);
+}
+asyncDemo(done);
+undefined
+VM3955:5 Inside Asynch Function 10 20
+VM3955:10 Now Sum is  30
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>{
+var x= 100;
+var y = 200;
+console.log("x is "+x+" and Y is "+y);
+resolve(x+y);
+},6000)
+});
+pr;
+Promise {<pending>}
+VM5282:5 x is 100 and Y is 200
+pr.then(data=>console.log("Total is ",data)).catch(err=>console.log("Error is ",err));
+VM5503:1 Total is  300
+Promise {<resolved>: undefined}
+async function cube(a){
+var pr = new Promise((resolve, reject )=>{
+setTimeout(()=>{
+resolve(a**3)
+},5000)
+});
+return pr;
+}
+undefined
+async function total(){
+return await cube(3) + await cube(2) + await cube(5);
+}
+undefined
+var pr = total();
+pr;
+pr.then(sum=>console.log("Sum is ",sum)).catch(err=>console.log("Error is ",err));
+Promise {<pending>}__proto__: Promise[[PromiseStatus]]: "pending"[[PromiseValue]]: undefined
+VM7470:3 Sum is  160

@@ -1,0 +1,64 @@
+var x= 5000;
+console.log("X is "+x);
+function add(){
+//console.log("X is "+x+" and Y is "+y);
+//console.log("X is ",x,"Y is ",y);
+var x= 100;
+var y = 200;
+console.log(`X is ${x} and Y is ${y}`);
+return x + y;
+}
+console.log("Now Call Dynamic ");
+var total =dynamic(add,x);
+
+function dynamic(fn,z){
+console.log("Inside Dynamic ",fn,z);
+total = setTimeout(fn,z);
+console.log("Dynamic End ",total);
+}
+console.log("After Everything and Program is Over ");
+VM2282:2 X is 5000
+VM2282:11 Now Call Dynamic 
+VM2282:15 Inside Dynamic  ƒ add(){
+//console.log("X is "+x+" and Y is "+y);
+//console.log("X is ",x,"Y is ",y);
+var x= 100;
+var y = 200;
+console.log(`X is ${x} and Y is ${y}`);
+return x + y;
+} 5000
+VM2282:17 Dynamic End  1
+VM2282:19 After Everything and Program is Over 
+undefined
+VM2282:8 X is 100 and Y is 200
+var x= 5000;
+console.log("X is "+x);
+function done(recValue){
+console.log("I Rec Value is ",recValue);
+}
+function add(){
+//console.log("X is "+x+" and Y is "+y);
+//console.log("X is ",x,"Y is ",y);
+var x= 100;
+var y = 200;
+console.log(`X is ${x} and Y is ${y}`);
+done(x+y);
+//return x + y;
+}
+console.log("Now Call Dynamic ");
+var total =dynamic(add,x);
+
+function dynamic(fn,z){
+console.log("Inside Dynamic ");
+total = setTimeout(fn,z);
+console.log("Dynamic End ",total);
+}
+console.log("After Everything and Program is Over ");
+VM2763:2 X is 5000
+VM2763:15 Now Call Dynamic 
+VM2763:19 Inside Dynamic 
+VM2763:21 Dynamic End  2
+VM2763:23 After Everything and Program is Over 
+undefined
+VM2763:11 X is 100 and Y is 200
+VM2763:4 I Rec Value is  300
