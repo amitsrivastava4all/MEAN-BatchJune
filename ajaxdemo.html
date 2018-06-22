@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        function createImage(url) {
+            var img = document.createElement("img");
+            img.src = url;
+            img.className = 'size';
+            var div = document.querySelector("#images");
+            div.appendChild(img);
+        }
+
+        function printImages(result) {
+            var div = document.querySelector("#images");
+            div.innerHTML = "";
+            for (let image of result.data) {
+                let url = image.images.original.url;
+
+                createImage(url);
+            }
+
+
+        }
+
+        function doAjax() {
+            var search = document.querySelector("#searchtxt").value;
+            console.log("Inside Ajax ", search);
+            var url = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=vFRSFWo6g7vJ7ZAjt3DMDolU52ORTxwH&limit=5";
+
+            fetch(url).then(response => {
+                console.log("Response is ", response);
+                response.json().then(data => {
+                    console.log("Data is ", data);
+                    printImages(data);
+                }).catch(err => {
+                    console.log("Invalid JSON ", err);
+                })
+            }).catch(err => console.log("Error During Ajax Call ", err));
+
+        }
+    </script>
+</head>
+
+<body>
+    <input id="searchtxt" type="text" placeholder="Type To Search Any Image">
+    <button onclick="doAjax()">Search</button>
+    <div id="images">
+    </div>
+</body>
+
+</html>
