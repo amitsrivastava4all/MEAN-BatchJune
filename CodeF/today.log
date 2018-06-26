@@ -1,0 +1,18 @@
+var mypromise = {};
+undefined
+function test(mypromise){
+	setTimeout(()=>{
+mypromise.msg = "Hello Promise ";    
+},5000);
+console.log("Test Going to end ",mypromise);
+return mypromise;
+}
+console.log("My Promise is ",mypromise);
+mypromise = test(mypromise);
+console.log("My Promise is ",mypromise);
+VM380:8 My Promise is  {}
+VM380:5 Test Going to end  {}
+VM380:10 My Promise is  {}
+undefined
+mypromise;
+{msg: "Hello Promise "}
