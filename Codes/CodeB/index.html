@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="angular.min.js"></script>
+</head>
+
+<body ng-app>
+    <div ng-switch on="counter">
+        <p ng-switch-when="1">One</p>
+        <p ng-switch-when="2">Two</p>
+        <p ng-switch-when="3">Three</p>
+    </div>
+    <input ng-readonly="counter>=3" type="text" ng-init="counter=0" ng-model="counter">
+    <button ng-disabled="counter>=3" ng-dblclick="counter=counter+1">{{counter}}</button>
+    <input type="checkbox" ng-model="showhide">Click to Show {{showhide}}
+    <br>
+    <ul>
+        <li ng-repeat="fruit in ['apple','orange','banana']">
+            <p ng-class-odd="'green'" ng-class-even="'red'">{{fruit}}</p>
+        </li>
+    </ul>
+    <div ng-if="price>10000">
+        NG IF Demo
+    </div>
+    {{mycity=='102'}}
+    <input ng-checked="mycity=='102'" type="checkbox"> Tick the City
+    <br>
+    <input type="checkbox" ng-model="city"> Select Delhi
+    <br>
+    <select ng-model="mycity">
+        <option> Select City</option>
+        <option value="101" ng-selected="city"> Delhi</option>
+        <option value="102"> Mumbai</option>
+       
+
+    </select>
+    <br>
+    <input type="checkbox" ng-model="selectall"> Select All
+    <br>
+    <input type="checkbox" ng-checked="selectall"> Burger
+    <br>
+    <input type="checkbox" ng-checked="selectall"> Pizza
+    <br>
+    <input type="checkbox" ng-checked="selectall"> Soft Drink
+    <br>
+
+    <div ng-show="showhide">
+        <input type="date">
+        <input type="text" placeholder="Type Your Name" ng-model="name">
+        <h3 ng-bind="name"></h3>
+        <h3 ng-bind-html="name"></h3>
+        <h2>Your Name is {{name|uppercase}}</h2>
+        <br>
+        <input ng-init="price=0" type="text" placeholder="Type Price Here" ng-model="price">
+        <br>
+        <input ng-init="quantity=0" type="text" placeholder="Type Quantity Here " ng-model="quantity">
+        <br>
+        <p>NG BIND Price is <span ng-bind="price"></span> </p>
+        <h4 ng-style="{'background-color':price>3000?'yellow':'orange'}">Price is {{price}}</h4>
+        <h2 ng-class="{'red':(price*quantity)<10000,'green':(price*quantity)>=10000}">Amount is {{price*quantity|currency:'&#8377;'}}</h2>
+    </div>
+</body>
+
+</html>
