@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("ctrl", ($scope) => {
+            console.log("Controller Loaded...");
+            $scope.addIt = () => {
+                console.log('Add call ', $scope.firstnumber, " ", $scope.secondnumber);
+                var sum = parseInt($scope.firstnumber) + parseInt($scope.secondnumber);
+                $scope.result = sum;
+            }
+        });
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="ctrl">
+        <input type="text" ng-model="firstnumber" placeholder="Type First Number">
+        <input type="text" ng-model="secondnumber" placeholder="Type Second Number">
+        <button ng-click="addIt()">Add</button>
+        <br> Sum is {{result}}
+    </div>
+</body>
+
+</html>
