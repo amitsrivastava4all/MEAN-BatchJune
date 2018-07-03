@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="libs/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.factory("myfactory", ($http, $q) => {
+            const object = {
+
+                // doAjax(scope) { Bad
+                doAjax() {
+                    var defer = $q.defer();
+                    const url = "https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/mobiles.json";
+                    console.log("Inside Factory AJAX>>>>>");
+                    $http.get(url).then(data => {
+                        console.log("Here Comes the Data in Factory ", data);
+                        defer.resolve(data);
+                        //scope.result =data; Bad
+                    }, err => {
+                        defer.reject(err);
+                    })
+                    console.log("Promise is Going to Return ");
+                    return defer.promise; // 99
+                }
+            };
+            return object;
+        })
+        app.controller("myctrl", ($scope, myfactory) => {
+            // myfactory.doAjax($scope); // Bad
+            function timePass() {
+                for (let i = 1; i <= 10; i++) {
+                    console.log("I is ", i);
+                }
+            }
+            console.log("Make a Ajax call");
+            var promise = myfactory.doAjax();
+            console.log("Ajax Call Done...")
+            timePass();
+            promise.then((data) => {
+                console.log("Data is Here ", data);
+                $scope.result = data;
+            }, (err) => {
+                $scope.error = err;
+            });
+        })
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <input type="text" placeholder="Type To Search " ng-model="searchtxt.price">
+        <ul>
+            <li ng-repeat="mobile in result.data.mobiles|filter:searchtxt">
+                {{mobile.name}} {{mobile.price|currency}}
+                <img class="size" ng-src="{{mobile.url}}">
+            </li>
+        </ul>
+        {{error}}
+    </div>
+
+</body>
+
+</html>
