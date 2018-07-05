@@ -1,0 +1,15 @@
+{
+  "name": "spademo",
+  "version": "0.0.1",
+  "description": "this is spa demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amit",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2"
+  }
+}
