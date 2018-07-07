@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.factory("myfactory", () => {
+            return {
+                x: 100
+            }
+        })
+        app.controller("myctrl", ($scope, $rootScope, myfactory) => {
+            $rootScope.address = 'Delhi';
+            myfactory.x = 900;
+            $scope.add = () => {
+                myfactory.x = myfactory.x + 100;
+            }
+        })
+        app.controller("myctrl2", ($scope, myfactory) => {
+            $scope.data = myfactory.x;
+        })
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <input type="text" ng-model="name"> First Name is {{name}}
+        <button ng-click="add()">Add</button>
+        <!-- <div ng-controller="myctrl2">
+            First Name is {{name}}
+         </div> -->
+    </div>
+    <br>
+    <hr>
+    <div ng-controller="myctrl2">
+        First Name is {{name}} {{address}} Data is {{data}}
+    </div>
+</body>
+
+</html>

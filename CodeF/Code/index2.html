@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("mainctrl", ($scope) => {
+            $scope.$on('hi', function(eventName, args) {
+                $scope.result3 = args.message;
+            })
+            $scope.show = () => {
+                $scope.$broadcast("hello", {
+                    message: 'Hello Child I am Parent'
+                });
+
+            }
+        })
+        app.controller("ctrl1", ($scope) => {
+            $scope.$on('hello', function(eventName, args) {
+                $scope.result1 = args.message;
+            })
+        })
+        app.controller("ctrl2", ($scope) => {
+            $scope.$on('hello', function(eventName, args) {
+                $scope.result2 = args.message;
+            })
+        })
+        app.controller("ctrl3", ($scope) => {
+            $scope.$emit('hi', {
+                message: 'Hi I am Controller 3'
+            });
+        })
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="mainctrl">
+        {{result3}}
+        <br>
+        <button ng-click="show()">Send Data to Ctrl1 Ctrl2</button>
+        <hr>
+        <div ng-controller="ctrl1">
+            {{result1}}
+        </div>
+        <hr>
+        <div ng-controller="ctrl2">
+            {{result2}}
+        </div>
+        <hr>
+        <div ng-controller="ctrl3">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
