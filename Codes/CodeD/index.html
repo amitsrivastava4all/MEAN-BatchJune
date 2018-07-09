@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("myctrl", ($scope, $http) => {
+            $scope.reg1 = {};
+            $scope.submitForm = (isValid) => {
+                console.log("Valid Value is ", isValid);
+
+                if (isValid) {
+                    console.log("Form is Valid ", $scope.reg1);
+                    alert("Form is Valid and It will Call Ajax ");
+                    // $http.post("",object);
+                } else {
+                    alert("Form is INvalid");
+                }
+            }
+        })
+    </script>
+
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <form name="reg" ng-submit="submitForm(reg.$valid)" novalidate>
+        <input name="uname" ng-model="reg1.uname" type="text" pattern="[a-z]{3,10}" required placeholder="Type Name">
+        <br> {{reg.uname}}
+        <input name="reg1.email" ng-model="reg1.email" type="email" required placeholder="Type Email">
+        <button>Register</button>
+
+
+    </form>
+</body>
+
+</html>
