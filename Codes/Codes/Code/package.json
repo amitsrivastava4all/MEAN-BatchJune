@@ -1,0 +1,21 @@
+{
+  "name": "spademo",
+  "version": "0.0.1",
+  "description": "this is spa demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amit",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}
