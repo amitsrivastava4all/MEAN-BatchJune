@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app3 = angular.module("secondmodule", []);
+        app3.factory("myAnotherfactory", () => {
+            return {
+                show() {
+                    return "I am Another Factory";
+                }
+            }
+        })
+        const app = angular.module("myapp", []);
+        app.factory("myfactory", () => {
+            return {
+                show() {
+                    return "I am Factory";
+                }
+            }
+        })
+        const app2 = angular.module("myapp2", ["myapp", "secondmodule"]);
+        app2.controller("myctrl", ['$scope', 'myfactory', 'myAnotherfactory', (o, f, h) => {
+            o.callMe = () => {
+                o.result = f.show() + h.show();
+            }
+        }])
+    </script>
+</head>
+
+<body ng-app="myapp2" ng-controller="myctrl">
+    <button ng-click="callMe()">Call Me</button>
+    <br> Result is {{result}}
+</body>
+
+</html>
