@@ -1,0 +1,15 @@
+{"message":"I am Inside DO Login tim","level":"debug"}
+{"level":"debug","message":"Inside Fetch "}
+{"message":"I am Outside DO Login tim","level":"debug"}
+{"message":"I am Inside DO Login tim","level":"debug","timestamp":"2018-08-01T03:35:09.115Z"}
+{"level":"debug","message":"Inside Fetch ","timestamp":"2018-08-01T03:35:10.880Z"}
+{"message":"I am Outside DO Login tim","level":"debug","timestamp":"2018-08-01T03:35:10.884Z"}
+{"message":"I am Inside DO Login tim","level":"debug","timestamp":"2018-08-01T05:23:41.175Z"}
+{"level":"debug","message":"Inside Fetch ","timestamp":"2018-08-01T05:23:43.558Z"}
+{"message":"I am Outside DO Login tim","level":"debug","timestamp":"2018-08-01T05:23:43.563Z"}
+{"message":"I am Inside DO Login tim","level":"debug","timestamp":"2018-08-01T06:28:31.688Z"}
+{"level":"debug","message":"Inside Fetch ","timestamp":"2018-08-01T06:28:33.969Z"}
+{"message":"I am Outside DO Login tim","level":"debug","timestamp":"2018-08-01T06:28:33.972Z"}
+{"message":"I am Inside DO Login tim","level":"debug","timestamp":"2018-08-01T07:29:09.938Z"}
+{"level":"debug","message":"Inside Fetch ","timestamp":"2018-08-01T07:29:12.352Z"}
+{"message":"I am Outside DO Login tim","level":"debug","timestamp":"2018-08-01T07:29:12.356Z"}

@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "authors": [
+    "amitsrivastava4all <amitsrivastava4all@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3",
+    "angular": "^1.7.2"
+  }
+}
